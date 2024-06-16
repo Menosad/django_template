@@ -1,3 +1,15 @@
 from django.contrib import admin
 
-# Register your models here.
+from main.models import Category, Investment
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    search_fields = ('name',)
+
+
+@admin.register(Investment)
+class InvestmentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'quantity')
+
